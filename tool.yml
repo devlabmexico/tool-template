@@ -1,0 +1,36 @@
+---
+crosscompute: 0.8.4
+kind: tool
+name: Tool Name X
+version:
+  name: 0.0.1
+input:
+  variables:
+    - id: input-data
+      view: table
+      path: input-data.csv
+  templates:
+    - id: standard
+      name: Standard
+      path: templates/input/standard.md
+output:
+  variables:
+    - id: output-data
+      view: text
+      path: output-data.json
+  templates:
+    - id: standard
+      name: Standard
+      path: templates/output/standard.md
+tests:
+  - folder: tests/standard
+script:
+  folder: .
+  command: bash run.sh
+repository:
+  uri: https://github.com/devlabmexico/base-template-tool
+  folder: .
+environment: 
+  image: docker.io/library/python:slim-buster
+  processor: cpu
+  memory: tiny
